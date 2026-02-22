@@ -1,0 +1,158 @@
+/* =============================================
+   WA Privacy Shield v3.0 — Content Styles
+   Injected via Plasmo content script config
+   ============================================= */
+
+/* ---------- CSS variable for blur amount (set by JS) ---------- */
+body.wa-privacy-on {
+  --wa-blur: 6px;
+}
+
+/* ---------- MESSAGES ---------- */
+body.wa-privacy-on.blur-messages .copyable-text,
+body.wa-privacy-on.blur-messages ._ao3e,
+body.wa-privacy-on.blur-messages .quoted-mention,
+body.wa-privacy-on.blur-messages span.selectable-text {
+  filter: blur(var(--wa-blur));
+  transition: filter 0.2s ease;
+  user-select: none;
+}
+
+/* ---------- CONTACT NAMES ---------- */
+body.wa-privacy-on.blur-names span[dir="auto"][title],
+body.wa-privacy-on.blur-names ._ao3e span[title],
+body.wa-privacy-on.blur-names header span[dir="auto"][title],
+body.wa-privacy-on.blur-names ._amig span[title],
+body.wa-privacy-on.blur-names span._ao3e[data-testid="conversation-info-header-chat-title"] {
+  filter: blur(var(--wa-blur));
+  transition: filter 0.2s ease;
+  user-select: none;
+}
+
+/* ---------- PROFILE PICTURES / AVATARS ---------- */
+body.wa-privacy-on.blur-avatars img[src*="pps.whatsapp.net"],
+body.wa-privacy-on.blur-avatars img[src*="web.whatsapp.com/pp"],
+body.wa-privacy-on.blur-avatars div[data-testid="cell-frame-primary-detail"] img,
+body.wa-privacy-on.blur-avatars div[style*="background-image"] {
+  filter: blur(var(--wa-blur));
+  transition: filter 0.2s ease;
+}
+
+/* ---------- MEDIA ---------- */
+body.wa-privacy-on.blur-media img.x193iq5w,
+body.wa-privacy-on.blur-media img[src*="blob:"],
+body.wa-privacy-on.blur-media video,
+body.wa-privacy-on.blur-media canvas,
+body.wa-privacy-on.blur-media ._aov4,
+body.wa-privacy-on.blur-media div[data-testid="media-state-img"] img,
+body.wa-privacy-on.blur-media div[data-testid="image-thumb"] img,
+body.wa-privacy-on.blur-media audio {
+  filter: blur(var(--wa-blur));
+  transition: filter 0.2s ease;
+  user-select: none;
+}
+
+/* ---------- CHAT LIST PREVIEWS ---------- */
+body.wa-privacy-on.blur-previews span[dir="ltr"][class*="matched-text"],
+body.wa-privacy-on.blur-previews ._ao3e.x1c4vz4f,
+body.wa-privacy-on.blur-previews span[title][dir="auto"] ~ span,
+body.wa-privacy-on.blur-previews div[data-testid="cell-frame-secondary"] span,
+body.wa-privacy-on.blur-previews div[data-testid="last-msg-status"] {
+  filter: blur(var(--wa-blur));
+  transition: filter 0.2s ease;
+  user-select: none;
+}
+
+/* ---------- LAST SEEN / ONLINE STATUS ---------- */
+body.wa-privacy-on.blur-status span[title="online"],
+body.wa-privacy-on.blur-status span[title="typing…"],
+body.wa-privacy-on.blur-status span[title*="last seen"],
+body.wa-privacy-on.blur-status ._ao3e._ao3f,
+body.wa-privacy-on.blur-status header span._ao3e:not([title]) {
+  filter: blur(var(--wa-blur));
+  transition: filter 0.2s ease;
+  user-select: none;
+}
+
+/* ---------- HIDE READ RECEIPTS ---------- */
+body.wa-privacy-on.hide-receipts span[data-testid="msg-dblcheck"],
+body.wa-privacy-on.hide-receipts span[data-testid="msg-check"],
+body.wa-privacy-on.hide-receipts span[aria-label*="Read"],
+body.wa-privacy-on.hide-receipts span[data-icon="msg-dblcheck"] {
+  visibility: hidden !important;
+}
+
+/* ---------- HIDE TYPING INDICATOR ---------- */
+body.wa-privacy-on.hide-typing div[data-testid="typing-indicator"],
+body.wa-privacy-on.hide-typing span[title="typing…"],
+body.wa-privacy-on.hide-typing span[title="recording audio…"] {
+  visibility: hidden !important;
+}
+
+/* ---------- HIDE LAST MESSAGE ---------- */
+body.wa-privacy-on.hide-last-msg div[data-testid="cell-frame-secondary"] span,
+body.wa-privacy-on.hide-last-msg div[data-testid="last-msg-status"],
+body.wa-privacy-on.hide-last-msg span[dir="ltr"][class*="matched-text"],
+body.wa-privacy-on.hide-last-msg ._ao3e.x1c4vz4f {
+  display: none !important;
+}
+.wa-hide-last-msg-row {
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+
+/* ========== REVEAL MODES ========== */
+
+/* Hover reveal */
+body.wa-privacy-on.reveal-hover .copyable-text:hover,
+body.wa-privacy-on.reveal-hover ._ao3e:hover,
+body.wa-privacy-on.reveal-hover .quoted-mention:hover,
+body.wa-privacy-on.reveal-hover span.selectable-text:hover,
+body.wa-privacy-on.reveal-hover img.x193iq5w:hover,
+body.wa-privacy-on.reveal-hover img[src*="blob:"]:hover,
+body.wa-privacy-on.reveal-hover img[src*="pps.whatsapp.net"]:hover,
+body.wa-privacy-on.reveal-hover video:hover,
+body.wa-privacy-on.reveal-hover audio:hover,
+body.wa-privacy-on.reveal-hover span[dir="auto"][title]:hover,
+body.wa-privacy-on.reveal-hover div[data-testid="cell-frame-secondary"] span:hover {
+  filter: blur(0px) !important;
+}
+
+/* Click reveal */
+body.wa-privacy-on.reveal-click .wa-revealed {
+  filter: blur(0px) !important;
+}
+
+/* ========== PANIC MODE ========== */
+body.wa-panic-mode .copyable-text,
+body.wa-panic-mode ._ao3e,
+body.wa-panic-mode .quoted-mention,
+body.wa-panic-mode span.selectable-text,
+body.wa-panic-mode span[dir="auto"][title],
+body.wa-panic-mode header span[dir="auto"][title],
+body.wa-panic-mode img[src*="pps.whatsapp.net"],
+body.wa-panic-mode img[src*="web.whatsapp.com/pp"],
+body.wa-panic-mode img.x193iq5w,
+body.wa-panic-mode img[src*="blob:"],
+body.wa-panic-mode video,
+body.wa-panic-mode audio,
+body.wa-panic-mode canvas,
+body.wa-panic-mode ._aov4,
+body.wa-panic-mode div[data-testid="cell-frame-secondary"] span,
+body.wa-panic-mode span[title="online"],
+body.wa-panic-mode span[title*="last seen"],
+body.wa-panic-mode div[style*="background-image"] {
+  filter: blur(20px) !important;
+  user-select: none;
+  transition: filter 0.15s ease;
+}
+body.wa-panic-mode span[data-testid="msg-dblcheck"],
+body.wa-panic-mode span[data-testid="msg-check"],
+body.wa-panic-mode span[data-icon="msg-dblcheck"] {
+  visibility: hidden !important;
+}
